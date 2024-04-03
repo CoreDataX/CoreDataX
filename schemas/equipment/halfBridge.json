@@ -1,0 +1,26 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://coreDataX.com/equipment/halfBridge.json",
+    "$ref": "/schemas/equipment/basicEquipment.json",
+    "title": "equipment/halfBridge",
+    "description": "The description of a half bridge",
+    "type": "object",
+    "properties": {
+        "switchPartNumber": {
+            "description": "The part number of the switch used in the half bridge",
+            "type": "string"
+        },
+        "switchVdss": {
+            "description": "The Vdss of the switch used in the half bridge",
+            "type": "string"
+        },
+        "switchRdson": {
+            "description": "The Rdson of the switch used in the half bridge",
+            "type": "string"
+        }
+    },
+    "required": [ "switchPartNumber",  "switchVdss",  "switchRdson"],
+
+    "$defs": {
+    }
+}

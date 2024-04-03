@@ -1,0 +1,90 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://coreDataX.com/cdx.json",
+    "title": "CDX",
+    "description": "Top file for a Core Data X entry",
+    "type": "object",
+    "properties": {
+        "metadata":{
+            "description": "",
+            "title": "metadata",
+            "$ref": "#/$defs/metadata"
+        },
+        "magnetic":{
+            "description": "",
+            "title": "magnetic",
+            "$ref": "/MAS/schemas/magnetic.json"
+        },
+        "testCircuit":{
+            "description": "",
+            "title": "testCircuit",
+            "$ref": "#/$defs/testCircuit"
+        },
+        "equipmentList":{
+            "description": "",
+            "title": "equipmentList",
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/equipmentList"
+            },
+            "minItems": 1
+        },
+        "testData":{
+            "description": "",
+            "title": "testData",
+            "$ref": "#/$defs/testData"
+        },
+    },
+    "required": ["inputs", "magnetic", "outputs"],
+
+    "$defs": {
+        "metadata":{
+            "description": "Data describing one operating point, including the operating conditions and the excitations for all ports",
+            "title": "operatingPoint",
+            "type": "object",
+            "properties": {
+                "who": {
+                    "description": "Name of person who did the test",
+                    "type": "string"
+                },
+                "where": {
+                    "description": "Where the test was performmed, company, institution",
+                    "type": "string"
+                },
+                "date": {
+                    "description": "date of testing, inclduing time of the day, according to ISO 8601",
+                    "type": "string"
+                },
+                "testname": {
+                    "description": "optional unique identifier to distinguish between multiple tests",
+                    "type": "string"
+                },
+            },
+            "required":["who, where, when"]
+        },
+        "metadata":{
+            "description": "Data describing one operating point, including the operating conditions and the excitations for all ports",
+            "title": "operatingPoint",
+            "type": "object",
+            "properties": {
+                "who": {
+                    "description": "Name of person who did the test",
+                    "type": "string"
+                },
+                "where": {
+                    "description": "Where the test was performmed, company, institution",
+                    "type": "string"
+                },
+                "date": {
+                    "description": "date of testing, inclduing time of the day, according to ISO 8601",
+                    "type": "string"
+                },
+                "testname": {
+                    "description": "optional unique identifier to distinguish between multiple tests",
+                    "type": "string"
+                },
+            },
+            "required":["who, where, when"]
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://coreDataX.com/equipment/wattmeter.json",
+    "$ref": "/schemas/equipment/basicEquipment.json",
+    "title": "equipment/wattmeter",
+    "description": "The description of a wattmeter",
+    "type": "object",
+    "properties": {
+        "calibrationDate": {
+            "description": "The calibration date of the equipment",
+            "type": "string"
+        },
+        "rangeErrorVoltage": {
+            "description": "TODO",
+            "type": "string"
+        },
+        "readingErrorVoltage": {
+            "description": "TODO",
+            "type": "string"
+        },
+        "rangeErrorCurrent": {
+            "description": "TODO",
+            "type": "string"
+        },
+        "readingErrorCurrent": {
+            "description": "TODO",
+            "type": "string"
+        },
+        "phaseErrorPerKHz": {
+            "description": "TODO",
+            "type": "string"
+        }
+    },
+    "required": [ "calibrationDate" ],
+
+    "$defs": {
+    }
+}

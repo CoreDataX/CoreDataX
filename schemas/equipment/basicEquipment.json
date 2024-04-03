@@ -1,0 +1,51 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://coreDataX.com/equipment/basicEquipment.json",
+    "title": "equipment",
+    "type": "object",
+    "properties": {
+        "type": {
+            "$ref": "#/$defs/equipmentType"
+        },
+        "description": {
+            "description": "The description of the equipment",
+            "type": "string"
+        },
+        "manufacturer": {
+            "description": "The manufacturer of the equipment",
+            "type": "string"
+        },
+        "model": {
+            "description": "The model of the equipment",
+            "type": "string"
+        },
+        "serialNumber": {
+            "description": "The serial number of the equipment",
+            "type": "string"
+        },
+        "assetNumber": {
+            "description": "The asset number of the equipment",
+            "type": "string"
+        },
+    },
+    "required": ["type", "model"],
+
+    "$defs": {
+        "equipmentType": {
+            "description": "The type of equipment",
+            "title": "equipmentType",
+            "type": "string",
+            "enum": [
+                "voltageSource",
+                "currentSource",
+                "amplifier",
+                "halfBridge",
+                "wattmeter",
+                "bhAnalyzer",
+                "oscilloscope",
+                "voltageSensor",
+                "currentSensor"
+            ]
+        }
+    }
+}

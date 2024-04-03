@@ -1,0 +1,22 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://coreDataX.com/equipment/voltageSource.json",
+    "$ref": "/schemas/equipment/basicEquipment.json",
+    "title": "equipment/voltageSource",
+    "description": "The description of a voltage source",
+    "type": "object",
+    "properties": {
+        "distortion": {
+            "description": "The distortion of the voltage source",
+            "type": "number"
+        },
+        "calibrationDate": {
+            "description": "The calibration date of the equipment",
+            "type": "string"
+        }
+    },
+    "required": [ "distortion" ],
+
+    "$defs": {
+    }
+}
