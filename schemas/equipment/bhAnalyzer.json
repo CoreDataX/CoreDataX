@@ -1,32 +1,24 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://coreDataX.com/equipment/wattmeter.json",
+    "$id": "https://coreDataX.com/equipment/bhAnalyzer.json",
     "$ref": "./basicEquipment.json",
-    "title": "equipment/wattmeter",
-    "description": "The description of a wattmeter",
+    "title": "equipment/bhAnalyzer",
+    "description": "The description of a BH Analyzer",
     "type": "object",
     "properties": {
         "calibrationDate": {
             "description": "The calibration date of the equipment",
             "type": "string"
         },
-        "rangeErrorVoltage": {
+        "rangeError": {
             "description": "TODO",
             "type": "string"
         },
-        "readingErrorVoltage": {
+        "readingError": {
             "description": "TODO",
             "type": "string"
         },
-        "rangeErrorCurrent": {
-            "description": "TODO",
-            "type": "string"
-        },
-        "readingErrorCurrent": {
-            "description": "TODO",
-            "type": "string"
-        },
-        "phaseErrorPerKHz": {
+        "phaseError": {
             "description": "TODO",
             "type": "string"
         }

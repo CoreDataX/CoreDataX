@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://coreDataX.com/equipment/basicEquipment.json",
-    "title": "equipment",
+    "title": "equipment/basicEquipment",
     "type": "object",
     "properties": {
         "type": {

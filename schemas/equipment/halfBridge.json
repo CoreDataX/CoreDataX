@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://coreDataX.com/equipment/halfBridge.json",
-    "$ref": "/schemas/equipment/basicEquipment.json",
+    "$ref": "./basicEquipment.json",
     "title": "equipment/halfBridge",
     "description": "The description of a half bridge",
     "type": "object",

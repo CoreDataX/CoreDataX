@@ -1,32 +1,24 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://coreDataX.com/equipment/wattmeter.json",
+    "$id": "https://coreDataX.com/equipment/oscilloscope.json",
     "$ref": "./basicEquipment.json",
-    "title": "equipment/wattmeter",
-    "description": "The description of a wattmeter",
+    "title": "equipment/oscilloscope",
+    "description": "The description of an Oscilloscope",
     "type": "object",
     "properties": {
         "calibrationDate": {
             "description": "The calibration date of the equipment",
             "type": "string"
         },
-        "rangeErrorVoltage": {
+        "chanRangeError": {
             "description": "TODO",
             "type": "string"
         },
-        "readingErrorVoltage": {
+        "chanReadingError": {
             "description": "TODO",
             "type": "string"
         },
-        "rangeErrorCurrent": {
-            "description": "TODO",
-            "type": "string"
-        },
-        "readingErrorCurrent": {
-            "description": "TODO",
-            "type": "string"
-        },
-        "phaseErrorPerKHz": {
+        "deskew": {
             "description": "TODO",
             "type": "string"
         }

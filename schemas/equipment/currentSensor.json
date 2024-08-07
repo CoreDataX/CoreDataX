@@ -1,0 +1,79 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://coreDataX.com/equipment/oscilloscope.json",
+    "$ref": "./basicEquipment.json",
+    "title": "equipment/oscilloscope",
+    "description": "The description of an Oscilloscope",
+    "type": "object",
+    "properties": {
+        "calibrationDate": {
+            "description": "The calibration date of the equipment",
+            "type": "string"
+        },
+        "resistance": {
+            "description": "TODO",
+            "type": "number"
+        },
+        "tempCoefficent": {
+            "description": "TODO",
+            "type": "number"
+        },
+        "currentRatio": {
+            "description": "TODO",
+            "type": "number"
+        },
+        "rating": {
+            "description": "TODO",
+            "type": "string"
+        },
+        "probeError": {
+            "description": "TODO",
+            "type": "string"
+        },
+        "sensorType": {
+            "$ref": "#/$defs/currentSensorType"
+        },
+        "phaseFrequencyCharacteristic": {
+            "description": "TODO",
+            "type": "object",
+            "properties": {
+                "dataPoint": {
+                    "description": "TODO",
+                    "type": "string"
+                },
+                "chart": {
+                    "description": "TODO",
+                    "title": "frequencyResponseChart",
+                    "type": "array",
+                    "items": {                
+                        "type": "object",
+                        "properties": {
+                            "phase": {
+                                "type": "number"
+                            },
+                            "frequency": {
+                                "type": "number"
+                            }
+                        }
+                    },
+                    "minItems": 1
+                }
+            }
+        }
+    },
+    "required": [ "calibrationDate" ],
+
+    "$defs": {
+        "currentSensorType": {
+            "description": "The type of current sensor",
+            "title": "currentSensorType",
+            "type": "string",
+            "enum": [
+                "resistiveShunt",
+                "coaxialShunt",
+                "probe",
+                "other"
+            ]
+        }
+    }
+}

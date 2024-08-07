@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://coreDataX.com/equipment/currentSource.json",
-    "$ref": "/schemas/equipment/basicEquipment.json",
+    "$ref": "./basicEquipment.json",
     "title": "equipment/currentSource",
     "description": "The description of a current source",
     "type": "object",
