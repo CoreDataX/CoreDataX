@@ -12,11 +12,11 @@
         },
         "switchVdss": {
             "description": "The Vdss of the switch used in the half bridge",
-            "type": "string"
+            "type": "number"
         },
         "switchRdson": {
             "description": "The Rdson of the switch used in the half bridge",
-            "type": "string"
+            "type": "number"
         }
     },
     "required": [ "switchPartNumber",  "switchVdss",  "switchRdson"],

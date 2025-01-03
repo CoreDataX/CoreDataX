@@ -16,7 +16,7 @@
             "oneOf": [
                 {"$ref": "../MAS/schemas/magnetic.json"},
                 {
-                    "description": "The name of the test circuit used",
+                    "description": "The reference of the magnetic used",
                     "type": "string"
                 }
             ]
@@ -28,13 +28,13 @@
         },
         "result":{
             "description": "",
-            "title": "coreLosses",
+            "title": "result",
             "$ref": "../MAS/schemas/outputs/coreLossesOutput.json"
         },
         "equipmentList":{
             "description": "Object with the equipment used in the test circuit",
-            "type": "object",
-            "additionalProperties": {
+            "type": "array",
+            "items": {
                 "oneOf": [
                     {"$ref": "./equipment/voltageSource.json"},
                     {"$ref": "./equipment/currentSource.json"},
@@ -45,7 +45,8 @@
                     {"$ref": "./equipment/voltageSensor.json"},
                     {"$ref": "./equipment/currentSensor.json"}
                 ]
-            }
+            },
+            "minItems": 1
         },
         "testCircuit":{
             "title": "testCircuitUnion",
