@@ -13,7 +13,13 @@
         "magnetic":{
             "description": "",
             "title": "magnetic",
-            "$ref": "../MAS/schemas/magnetic.json"
+            "oneOf": [
+                {"$ref": "../MAS/schemas/magnetic.json"},
+                {
+                    "description": "The name of the test circuit used",
+                    "type": "string"
+                }
+            ]
         },
         "operatingPoint":{
             "description": "",
