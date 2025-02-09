@@ -33,7 +33,7 @@
         },
         "setup":{
             "title": "setup",
-            "$ref": "#/$defs/testCircuit"
+            "$ref": "#/$defs/setup"
         }
     },
     "required": ["metadata", "magnetic", "operatingPoint", "result", "setup"],
