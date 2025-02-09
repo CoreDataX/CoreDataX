@@ -31,35 +31,12 @@
             "title": "result",
             "$ref": "../MAS/schemas/outputs/coreLossesOutput.json"
         },
-        "equipmentList":{
-            "description": "Object with the equipment used in the test circuit",
-            "type": "array",
-            "items": {
-                "oneOf": [
-                    {"$ref": "./equipment/voltageSource.json"},
-                    {"$ref": "./equipment/currentSource.json"},
-                    {"$ref": "./equipment/halfBridge.json"},
-                    {"$ref": "./equipment/wattmeter.json"},
-                    {"$ref": "./equipment/bhAnalyzer.json"},
-                    {"$ref": "./equipment/oscilloscope.json"},
-                    {"$ref": "./equipment/voltageSensor.json"},
-                    {"$ref": "./equipment/currentSensor.json"}
-                ]
-            },
-            "minItems": 1
-        },
-        "testCircuit":{
-            "title": "testCircuitUnion",
-            "oneOf": [
-                {"$ref": "#/$defs/testCircuit"},
-                {
-                    "description": "The name of the test circuit used",
-                    "type": "string"
-                }
-            ]
+        "setup":{
+            "title": "setup",
+            "$ref": "#/$defs/testCircuit"
         }
     },
-    "required": ["metadata", "magnetic", "equipmentList", "operatingPoint", "result", "testCircuit"],
+    "required": ["metadata", "magnetic", "operatingPoint", "result", "setup"],
 
     "$defs": {
         "metadata": {
@@ -109,6 +86,49 @@
                 }
             },
             "required":["name", "image", "files"]
+        },
+        "setup":{
+            "description": "Setup used to measure the core losses, including test circuit and equipment list",
+            "title": "setup",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Name of the setup",
+                    "type": "string"
+                },
+                "equipmentList":{
+                    "description": "Object with the equipment used in the test circuit",
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "description": "The model of the equipment",
+                                "type": "string"
+                            },
+                            {"$ref": "./equipment/voltageSource.json"},
+                            {"$ref": "./equipment/currentSource.json"},
+                            {"$ref": "./equipment/halfBridge.json"},
+                            {"$ref": "./equipment/wattmeter.json"},
+                            {"$ref": "./equipment/bhAnalyzer.json"},
+                            {"$ref": "./equipment/oscilloscope.json"},
+                            {"$ref": "./equipment/voltageSensor.json"},
+                            {"$ref": "./equipment/currentSensor.json"}
+                        ]
+                    },
+                    "minItems": 1
+                },
+                "testCircuit":{
+                    "title": "testCircuitUnion",
+                    "oneOf": [
+                        {"$ref": "#/$defs/testCircuit"},
+                        {
+                            "description": "The name of the test circuit used",
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "required":["name", "equipmentList", "testCircuit"]
         }
     }
 }
