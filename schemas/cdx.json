@@ -33,7 +33,13 @@
         },
         "setup":{
             "title": "setup",
-            "$ref": "#/$defs/setup"
+            "oneOf": [
+                {"$ref": "#/$defs/setup"},
+                {
+                    "description": "The reference of the setup used",
+                    "type": "string"
+                }
+            ]
         }
     },
     "required": ["metadata", "magnetic", "operatingPoint", "result", "setup"],

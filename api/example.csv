@@ -1,0 +1,4 @@
+magneticReference,setupReference,frequency,magneticFluxDensityPeak,magneticFieldDcBias,magneticFieldWaveformType,temperature,volumetricLosses,userId
+3C94 --- TX-20-10-7,My setup,112160,0.0885929,0,Triangular,25,87198.16,1
+3C94 --- TX-20-10-7,My setup,112160,0.0990441,0,Triangular,25,114103.336,1
+3C94 --- TX-20-10-7,My setup,112160,0.110654,0,Triangular,25,150794.77,1
