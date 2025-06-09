@@ -28,7 +28,7 @@
         },
         "result":{
             "description": "",
-            "title": "result",
+            "title": "CoreLossesOutput",
             "$ref": "../MAS/schemas/outputs/coreLossesOutput.json"
         },
         "setup":{

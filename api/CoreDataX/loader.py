@@ -2,9 +2,9 @@ import pandas
 import numpy
 import sys
 import os
-import server
 import datetime
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../outputs/')))
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
+import server
 import CDX
 
 
@@ -66,7 +66,7 @@ class CsvLoader:
             user_id = self.get_user_data()
             magnetic = magnetic_data["magnetic"]
             magnetic_index = magnetic_data["index"]
-            result = CDX.CoreLossesOutput(
+            result = CDX.OutputsCoreLossesOutput(
                 coreLosses=row["volumetricLosses"] * magnetic["core"]["processedDescription"]["effectiveParameters"]["effectiveVolume"],
                 methodUsed=row["setupReference"],
                 origin=CDX.ResultOrigin.measurement)

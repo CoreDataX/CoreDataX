@@ -3,7 +3,7 @@ import json
 
 
 def get_magnetic_data(reference, token):
-    url = 'http://localhost:8000/read_magnetic_by_reference'
+    url = 'https://coredatax.com:4242/read_magnetic_by_reference'
     body = {'reference': reference, 'token': token}
 
     x = requests.post(url, json=body)
@@ -12,7 +12,7 @@ def get_magnetic_data(reference, token):
 
 
 def get_setup_data(reference, token):
-    url = 'http://localhost:8000/read_setup_by_reference'
+    url = 'https://coredatax.com:4242/read_setup_by_reference'
     body = {'reference': reference, 'token': token}
 
     x = requests.post(url, json=body)
@@ -21,7 +21,7 @@ def get_setup_data(reference, token):
 
 
 def get_user_data(token):
-    url = 'http://localhost:8000/get_user_data_by_token'
+    url = 'https://coredatax.com:4242/get_user_data_by_token'
     body = {'token': token}
 
     x = requests.post(url, json=body)
@@ -30,7 +30,7 @@ def get_user_data(token):
 
 
 def insert_data(data):
-    url = 'http://localhost:8000/insert_data'
+    url = 'https://coredatax.com:4242/insert_data'
     body = {'data': data}
 
     x = requests.post(url, json=body)
