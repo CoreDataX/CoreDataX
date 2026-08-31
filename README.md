@@ -37,7 +37,7 @@ A header row is required. These columns must be present:
 | `frequency` | Hz | excitation frequency |
 | `magneticFluxDensityPeak` | T | peak flux density |
 | `magneticFieldDcBias` | T | DC bias of the flux density (0 for symmetric excitation) |
-| `magneticFieldWaveformType` | — | `Sinusoidal`, `Triangular`, `Rectangular`, … |
+| `magneticFieldWaveformType` | — | `sinusoidal`, `triangular`, `rectangular`, … (PEAS 1.0 spelling; the older `Sinusoidal`/`Square` names are still accepted and converted) |
 | `temperature` | °C | ambient temperature |
 | `volumetricLosses` | W/m³ | measured core losses per unit volume |
 
@@ -52,10 +52,11 @@ the Herbert curves.
 
 ```csv
 magneticReference,setupReference,frequency,magneticFluxDensityPeak,magneticFieldDcBias,magneticFieldWaveformType,temperature,volumetricLosses
-3C90 --- TX-25-15-10,my-setup,100000,0.1,0,Sinusoidal,25,42000
+3C90 --- TX-25-15-10,my-setup,100000,0.1,0,sinusoidal,25,42000
 ```
 
-A row the server rejects (unknown magnetic reference, unparseable number) does not
+A row the server rejects (unknown magnetic reference, unparseable number, a waveform
+name it does not recognise) does not
 abort the upload — it comes back in `errors` with its CSV line number, while the
 good rows are stored.
 

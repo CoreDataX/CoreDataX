@@ -14,7 +14,7 @@ from .client import (
     upload_csv,
 )
 
-__version__ = "0.10.1"
+__version__ = "0.10.2"
 
 __all__ = [
     "Client",
