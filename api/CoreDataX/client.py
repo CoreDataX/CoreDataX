@@ -20,12 +20,17 @@ import requests
 
 DEFAULT_BASE_URL = "https://coredatax.com"
 
-#: Columns every uploaded CSV must carry (extra columns are allowed:
-#: ``setupReference``, ``magneticFieldDcBias``, ``magneticFieldWaveformType``).
+#: Columns every uploaded CSV must carry. The excitation ones are not
+#: decoration: they become label / offset on the stored CDX document, which is
+#: what CoreDataX reads back as waveform / dcBias -- a measurement without them
+#: is dropped from the Herbert curves. ``dutyCycle`` is the one optional extra.
 REQUIRED_CSV_COLUMNS = (
     "magneticReference",
+    "setupReference",
     "frequency",
     "magneticFluxDensityPeak",
+    "magneticFieldDcBias",
+    "magneticFieldWaveformType",
     "temperature",
     "volumetricLosses",
 )
@@ -98,12 +103,11 @@ class Client:
     def upload_csv(self, csv):
         """Upload measurements from a CSV file path, file object, or CSV text.
 
-        The CSV needs a header row with at least ``magneticReference``,
-        ``frequency``, ``magneticFluxDensityPeak``, ``temperature`` and
-        ``volumetricLosses``; ``setupReference``, ``magneticFieldDcBias`` and
-        ``magneticFieldWaveformType`` are used when present. Max 10 000 rows
-        per call. The rows are attributed to the authenticated user -- a
-        ``userId`` column, if any, is ignored.
+        The CSV needs a header row carrying every column in
+        :data:`REQUIRED_CSV_COLUMNS`; ``dutyCycle`` may be added for
+        non-sinusoidal excitation. Max 10 000 rows per call. The rows are
+        attributed to the authenticated user -- a ``userId`` column, if any,
+        is ignored.
 
         Returns the server's ``{'success', 'inserted', 'errors'}``; ``errors``
         holds one entry per rejected row (with its 1-based CSV line number).

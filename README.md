@@ -33,14 +33,22 @@ A header row is required. These columns must be present:
 | column | unit | meaning |
 | --- | --- | --- |
 | `magneticReference` | — | the reference of a magnetic already registered in CoreDataX |
+| `setupReference` | — | the measurement setup; stored as the record's `setup` and `methodUsed` |
 | `frequency` | Hz | excitation frequency |
 | `magneticFluxDensityPeak` | T | peak flux density |
+| `magneticFieldDcBias` | T | DC bias of the flux density (0 for symmetric excitation) |
+| `magneticFieldWaveformType` | — | `Sinusoidal`, `Triangular`, `Rectangular`, … |
 | `temperature` | °C | ambient temperature |
 | `volumetricLosses` | W/m³ | measured core losses per unit volume |
 
-Optional: `setupReference`, `magneticFieldDcBias` (A/m), `magneticFieldWaveformType`
-(e.g. `Sinusoidal`). Up to 10 000 rows per call. Rows are attributed to the
-authenticated user — a `userId` column is ignored.
+Optional: `dutyCycle` (for non-sinusoidal excitation). Up to 10 000 rows per call.
+Rows are attributed to the authenticated user — a `userId` column is ignored.
+
+The excitation columns are not decoration: `magneticFieldWaveformType`,
+`magneticFieldDcBias` and `dutyCycle` become `label`, `offset` and `dutyCycle` on
+the stored CDX document, which is what CoreDataX reads back as `waveform`,
+`dcBias` and `dutyCycle` — a measurement with no waveform label is dropped from
+the Herbert curves.
 
 ```csv
 magneticReference,setupReference,frequency,magneticFluxDensityPeak,magneticFieldDcBias,magneticFieldWaveformType,temperature,volumetricLosses
